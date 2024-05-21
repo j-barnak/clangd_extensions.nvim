@@ -253,9 +253,6 @@ local function inline_handler(err, result, ctx)
             or not config.options.inlay_hints.only_current_line
         then
             local col = hint.position.character
-            local details =
-            local opts = {
-            }
             vim.api.nvim_buf_set_extmark(bufnr, namespace, line, col, {})
         end
     end
