@@ -253,14 +253,10 @@ local function inline_handler(err, result, ctx)
             or not config.options.inlay_hints.only_current_line
         then
             local col = hint.position.character
-            vim.api.nvim_buf_set_extmark(bufnr, namespace, line, col, {
-                virt_text_pos = "inline",
-                virt_text = {
-                    { text, config.options.inlay_hints.highlight },
-                },
-                hl_mode = "combine",
-                priority = config.options.inlay_hints.priority,
-            })
+            local details =
+            local opts = {
+            }
+            vim.api.nvim_buf_set_extmark(bufnr, namespace, line, col, {})
         end
     end
 end
